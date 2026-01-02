@@ -4,4 +4,4 @@ Most manuscripts these days have supplementary material, place those into the `s
 
 Figures/tables/etc. should be pulled from their respective locations by code, as shown in the example.
 
-Based on what most journals want, it is generally best to have the main manuscript render to a Word file, and the supplement to a pdf. Deviations might be necessary, based on specific circumstances.
+Based on what most journals want, it is generally best to have the main manuscript render to a Word file, and the supplement to a PDF. Deviations might be necessary, based on specific circumstances.

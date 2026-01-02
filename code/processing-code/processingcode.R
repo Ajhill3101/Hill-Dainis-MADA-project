@@ -101,7 +101,7 @@ skimr::skim(d3)
 #There is also an individual coded as "N" which is not allowed.
 #This could be mistyped M or a mistyped NA. If we have a good guess, we could adjust.
 #If we don't we might need to remove that individual.
-#well proceed here by removing both the NA and N individuals
+# we'll proceed here by removing both the NA and N individuals
 #since this keeps an empty category, I'm also using droplevels() to get rid of it
 d4 <- d3 %>% dplyr::filter( !(Gender %in% c("NA","N")) ) %>% droplevels()
 skimr::skim(d4)

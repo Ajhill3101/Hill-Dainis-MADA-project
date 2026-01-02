@@ -22,14 +22,14 @@ csl: ../../assets/american-journal-of-epidemiology.csl
 ## Overview
 
 -   A few simple slides using the [`revealjs` (html) format](https://quarto.org/docs/presentations/revealjs/).
--   For other formats (e.g. Powerpoint, or Beamer/pdf), see [here](https://quarto.org/docs/guide/).
+-   For other formats (e.g. PowerPoint, or Beamer/pdf), see [here](https://quarto.org/docs/guide/).
 
 
 ## Figures and tables
 
 The suggestion is to place figures/tables/Rds files etc. in the `media` folder.
 
-You could also pull it from the `results` folder, but the advantage of copying them into `media` is that you have everything related to your presentation in one place, and if contentigures inside `results` continues to be changed/updated, you can ensure you have the version you used in your presentation by copying it into `media`.
+You could also pull it from the `results` folder, but the advantage of copying them into `media` is that you have everything related to your presentation in one place, and if content in `results` continues to be changed/updated, you can ensure you have the version you used in your presentation by copying it into `media`.
 
 
 

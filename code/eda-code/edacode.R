@@ -34,6 +34,7 @@ ggsave(filename = figure_file, plot=p2)
 p3 <- mydata %>% ggplot(aes(x=Height, y=Weight)) + geom_point() + geom_smooth(method='lm')
 plot(p3)
 figure_file = here("results","figures", "height-weight.png")
+ggsave(filename = figure_file, plot=p3) 
 
 ## ---- fitfig2 --------
 p4 <- mydata %>% ggplot(aes(x=Height, y=Weight, color = Gender)) + geom_point() + geom_smooth(method='lm')
