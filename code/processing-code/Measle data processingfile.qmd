@@ -1,0 +1,441 @@
+---
+title: "Measles outbreak hubs (2024–2026) vs historical persistence and MMR coverage"
+output: html_document
+---
+
+# Setup
+```{r}
+library(tidyverse)   # Data wrangling + plotting (dplyr, tidyr, ggplot2, readr, stringr)
+library(lubridate)   # Date parsing and extracting years
+library(janitor)     # clean_names() for consistent column names
+library(scales)      # percent() formatting
+library(here)        # Stable project-root paths
+```
+
+
+# Loading cdc-measlesbystate.csv
+```{r}
+cdcmeaslesbystate_raw <- read_csv(here("data/raw-data/cdc-measlesbystate.csv"), show_col_types = FALSE) |>
+  clean_names()
+
+names(cdcmeaslesbystate_raw)
+cdcmeaslesbystate_raw |> slice_head(n = 8)              
+```
+# Cleaning
+```{r}
+
+  if ("location" %in% names(cdcmeaslesbystate_raw)) {
+  cdcmeaslesbystate_raw <- cdcmeaslesbystate_raw |> rename(state = location)
+}
+  cdcmeaslesbystate_long <- cdcmeaslesbystate_raw |>
+  select(state, matches("^x?\\d{4}$")) |>
+  pivot_longer(
+    cols = matches("^x?\\d{4}$"),
+    names_to = "year_raw",
+    values_to = "cases"
+  ) |>
+  mutate(
+    year  = readr::parse_number(year_raw),
+    cases = suppressWarnings(as.numeric(cases)),
+    state = stringr::str_to_title(stringr::str_squish(state))
+  ) |>
+  filter(!is.na(state), !is.na(year))
+
+# Quick checks
+names(cdcmeaslesbystate_long)
+cdcmeaslesbystate_long |> count(year)
+cdcmeaslesbystate_long |>
+  filter(state %in% c("Texas", "South Carolina", "Arizona")) |>
+  arrange(state, year)
+```
+# Summary of cleaned cdc-measlesbystate.csv
+```{r}
+recent_state <- cdcmeaslesbystate_long |>
+  group_by(state) |>
+  summarise(
+    total_cases_2024_26 = sum(cases, na.rm = TRUE),
+    peak_cases_2024_26  = max(cases, na.rm = TRUE),
+    mean_cases_2024_26  = mean(cases, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(total_cases_2024_26))
+
+recent_state |> slice_head(n = 15)
+summary(recent_state$total_cases_2024_26)
+```
+
+# Loading measles-noncumulative.csv
+```{r}
+hist_raw <- read_csv(here("data/raw-data/measles-noncumulative.csv"), show_col_types = FALSE) |>
+  clean_names()
+
+names(hist_raw)
+hist_raw |> slice_head(n = 3)
+```
+# Cleaning: Weekly totals to yearly totals per state
+```{r}
+hist_yearly <- hist_raw |>
+  transmute(
+    state = str_to_title(str_squish(admin1name)),
+    start_date = ymd(period_start_date),
+    year = year(start_date),
+    cases = as.numeric(count_value)
+  ) |>
+  filter(!is.na(state), !is.na(year), !is.na(cases)) |>
+  group_by(state, year) |>
+  summarise(cases = sum(cases, na.rm = TRUE), .groups = "drop")
+
+hist_yearly |> summarise(min_year = min(year), max_year = max(year), states = n_distinct(state))
+hist_yearly |> slice_head(n = 10)
+```
+# Narrow down to the years 1980-2009 to look at how long cases persisted in each state
+```{r}
+start_year <- 1980
+end_year   <- 2009
+```
+# Function to answer the question "What is the longest number of consecutive years a state had measles cases"?
+```{r}
+longest_run_nonzero_hist <- function(x) {
+  r <- rle(x)
+  if (!any(r$values)) return(0L)
+  max(r$lengths[r$values])
+}
+```
+
+```{r}
+# Create a state-level historical measles summary table (one row per state)
+hist_state <- hist_yearly |>
+# Keep only the years we want to study (1980–2009)
+  filter(year >= start_year, year <= end_year) |>
+# Ensure EVERY state has EVERY year in the range (fills missing state-years)
+# If a state-year is missing, we assume 0 cases for that year
+  complete(state, year = seq(start_year, end_year), fill = list(cases = 0)) |>
+# Do the next calculations separately for each state
+  group_by(state) |>
+# Sort years in order so streak calculations (runs) work correctly
+  arrange(year) |>
+# Collapse each state's many year-rows into ONE summary row of features   
+  summarise(
+    # Share of years in the window where the state had ANY measles cases
+    # cases > 0 becomes TRUE/FALSE, and mean(TRUE/FALSE) becomes a proportion
+    pct_years_any = mean(cases > 0),
+# Average number of measles cases per year across the time window  
+    mean_cases_80_09 = mean(cases),
+ # Largest single-year measles case count across the time window
+ # (Uses the helper function you defined earlier)
+    max_cases_80_09  = max(cases),
+    longest_run_nonzero = longest_run_nonzero_hist(cases > 0),
+# Drop grouping so hist_state is a normal (ungrouped) dataframe
+    .groups = "drop"
+  )
+# Show the 12 states with the highest share of years that had measles cases
+hist_state |> arrange(desc(pct_years_any)) |> slice_head(n = 12)
+# Show the 12 states with the longest continuous streak of years with measles cases
+hist_state |> arrange(desc(longest_run_nonzero)) |> slice_head(n = 12)
+```
+
+
+# Loading and Cleaning MMR data
+```{r}
+# load the single MMR file (contains all years) 
+mmr_raw <- read_csv(here("data/raw-data/cdc-mmr2024.csv"), show_col_types = FALSE) |>
+  clean_names()
+
+# Quick look at structure
+names(mmr_raw)
+mmr_raw |> slice_head(n = 10)
+
+# Clean core variables
+mmr_clean <- mmr_raw |>
+  transmute(
+    state = str_to_title(str_squish(location)),                 # standardize state names
+    school_year = str_squish(school_year),                      # trim spaces
+    school_year_start = as.integer(str_extract(school_year, "\\d{4}")), # extract starting year
+    mmr_pct = readr::parse_number(estimated_percent_vaccinated),# handles "95.4%" or "95.4"
+    category = if ("category" %in% names(mmr_raw)) category else NA_character_
+  ) |>
+  filter(!is.na(state), !is.na(school_year_start), !is.na(mmr_pct))
+
+# Check which years exist
+mmr_clean |> count(school_year, school_year_start) |> arrange(school_year_start)
+
+# Collapse to ONE row per state-year (handles duplicate categories/rows)
+mmr_state_year <- mmr_clean |>
+  group_by(state, school_year_start) |>
+  summarise(
+    mmr_pct = mean(mmr_pct, na.rm = TRUE),   # average across duplicates if present
+    n_rows = n(),                             # how many rows contributed
+    .groups = "drop"
+  )
+
+# Confirm we truly have one row per state-year now
+mmr_state_year |> count(school_year_start) |> arrange(school_year_start)
+mmr_state_year |> filter(state %in% c("Texas","South Carolina")) |> arrange(state, school_year_start)
+```
+
+# Exploratory summaries and plots from cleaned data
+```{r}
+# Exploratory summaries for MMR data
+
+# States with the lowest recent MMR coverage (chose last available year)
+last_year <- max(mmr_state_year$school_year_start, na.rm = TRUE)
+
+mmr_state_year |>
+  filter(school_year_start == last_year) |>
+  arrange(mmr_pct) |>
+  select(state, school_year_start, mmr_pct) |>
+  slice_head(n = 15)
+
+# States that were below 95% most often (across all years)
+mmr_state_features <- mmr_state_year |>
+  group_by(state) |>
+  summarise(
+    mmr_mean = mean(mmr_pct, na.rm = TRUE),
+    mmr_min  = min(mmr_pct, na.rm = TRUE),
+    frac_years_below_95 = mean(mmr_pct < 95, na.rm = TRUE),
+    first_year = min(school_year_start),
+    last_year  = max(school_year_start),
+    n_years = n(),
+    .groups = "drop"
+  ) |>
+  arrange(desc(frac_years_below_95))
+
+mmr_state_features |> slice_head(n = 20)
+
+# national mean and median over time
+mmr_national_trend <- mmr_state_year |>
+  group_by(school_year_start) |>
+  summarise(
+    median_mmr = median(mmr_pct, na.rm = TRUE),
+    mean_mmr = mean(mmr_pct, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+mmr_national_trend
+```
+# Joining all three cleaned data into a master table
+```{r}
+features <- recent_state |>
+
+  # Join historical persistence features
+  left_join(hist_state, by = "state") |>
+
+  # Join vaccination features
+  left_join(mmr_state_features, by = "state")
+  features |> glimpse()
+  features |> summarise(across(where(is.numeric), ~mean(is.na(.))))
+```
+```{r}
+# Exploratory plots
+
+# Plot 1a: National trend (median MMR coverage across states)
+mmr_national_trend |>
+  ggplot(aes(x = school_year_start, y = median_mmr)) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 95, linetype = "dashed") +
+  labs(
+    title = "Median kindergarten MMR coverage Nationally",
+    x = "School year (start)",
+    y = "Median MMR coverage (%)",
+    caption = "Dashed line = 95% (herd-immunity target for measles)"
+  ) +
+  theme_minimal()
+
+# plot 1b:  National trend (median MMR coverage across states)
+mmr_national_trend |>
+  ggplot(aes(x = school_year_start, y = mean_mmr)) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 95, linetype = "dashed") +
+  labs(
+    title = "Mean kindergarten MMR coverage Nationally",
+    x = "School year (start)",
+    y = "Median MMR coverage (%)",
+    caption = "Dashed line = 95% (herd-immunity target for measles)"
+  ) +
+  theme_minimal()
+# Plot 2: MMR coverage overtime for specific states (edit list as needed)
+# Y intercept = For measles, epidemiologists often cite ~95% vaccination coverage as the level needed for strong herd immunity.(STILL NEED TO ADD REF)
+focus_states <- c("Texas","South Carolina","California","New York","Florida")
+
+mmr_state_year |>
+  filter(state %in% focus_states) |>
+  ggplot(aes(
+    x = school_year_start,
+    y = mmr_pct,
+    color = state,      
+    group = state
+  )) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 95, linetype = "dashed") +
+  labs(
+    title = "Kindergarten MMR coverage over time (selected states)",
+    x = "School year (start)",
+    y = "MMR coverage (%)",
+    color = "State"     # legend title
+  ) +
+  theme_minimal()
+```
+
+```{r}
+# Exploratory summaries from recent measles data
+
+# Exploratory plots
+# Plot 1
+recent_state |>
+  arrange(desc(total_cases_2024_26)) |>
+  slice_head(n = 15) |>
+  ggplot(aes(x = reorder(state, total_cases_2024_26),
+             y = total_cases_2024_26)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top states by measles cases (2024–2026)",
+    x = "State",
+    y = "Total cases"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+# Plot 2
+focus_states <- c("Texas","South Carolina","Arizona","Utah","California","New York")
+
+cdcmeaslesbystate_long |>
+  filter(state %in% focus_states) |>
+  ggplot(aes(year, cases, color = state)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(
+    breaks = seq(min(cdcmeaslesbystate_long$year),
+                 max(cdcmeaslesbystate_long$year),
+                 by = 1)
+  ) +
+  labs(
+    title = "Year-by-year recent trends for key states",
+    x = "Year",
+    y = "Cases"
+  ) +
+  theme_minimal()
+```
+```{r}
+# Exploratory summaries from historic measles data
+
+# Plot 1
+hist_state |>
+  arrange(desc(pct_years_any)) |>
+  slice_head(n = 15) |>
+  ggplot(aes(x = reorder(state, pct_years_any),
+             y = pct_years_any)) +
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "States with most persistent measles presence (1980–2009)",
+    x = "State",
+    y = "Percent of years with cases"
+  ) +
+  theme_minimal()
+# Plot 2
+hist_state |>
+  arrange(desc(longest_run_nonzero)) |>
+  slice_head(n = 15) |>
+  ggplot(aes(x = reorder(state, longest_run_nonzero),
+             y = longest_run_nonzero)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Longest consecutive measles streak by state",
+    x = "State",
+    y = "Years in a row with measles"
+  ) +
+  theme_minimal()
+```
+
+
+# Exploratory data analysis
+
+```{r}
+# Recent measles cases vs average MMR coverage
+# plot without linear regression
+library(ggrepel)
+
+features |>
+  ggplot(aes(x = mmr_mean, y = total_cases_2024_26)) +
+  geom_point(size = 2) +
+  geom_text_repel(
+    aes(label = state),
+    size = 3,
+    max.overlaps = 50
+  ) +
+  scale_y_sqrt() +
+  labs(
+    title = "Recent measles cases vs average MMR coverage",
+    x = "Average MMR coverage (%)",
+    y = "Total measles cases 2024–2026 (sqrt scale)"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+# Recent measles cases vs average MMR coverage
+# plot with linear regression
+features |>
+  ggplot(aes(x = mmr_mean, y = total_cases_2024_26)) +
+  geom_point(size = 2) +
+  
+  # Add regression line with confidence band
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  
+  # Label each state without overlapping
+  geom_text_repel(
+    aes(label = state),
+    size = 3,
+    max.overlaps = 50
+  ) +
+  
+  # sqrt scale helps when some states have very high counts
+  scale_y_sqrt() +
+  
+  labs(
+    title = "Recent measles cases vs average MMR coverage",
+    x = "Average MMR coverage (%)",
+    y = "Total measles cases 2024–2026 (sqrt scale)"
+  ) +
+  theme_minimal()
+```
+
+
+```{r}
+# Recent peak measles cases vs historical peak measles burden
+# plot with linear regression
+features |>
+  ggplot(aes(x = max_cases_80_09, y = peak_cases_2024_26)) +
+  
+  # scatter points
+  geom_point(size = 2) +
+  
+  # regression line + confidence band
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  
+  # state labels that avoid overlap
+  geom_text_repel(
+    aes(label = state),
+    size = 3,
+    max.overlaps = 50
+  ) +
+  
+  # sqrt scales help when some states have extreme outbreak values
+  scale_x_sqrt() +
+  scale_y_sqrt() +
+  
+  labs(
+    title = "Recent peak measles cases vs historical peak measles burden",
+    x = "Maximum yearly measles cases (1980–2009)",
+    y = "Peak measles cases (2024–2026)"
+  ) +
+  
+  theme_minimal()
+```

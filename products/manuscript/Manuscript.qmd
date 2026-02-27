@@ -30,7 +30,7 @@ library(knitr)
 **Author affiliations**  
 
 1. Infectious Diseases and Center for Tropical and Emerging Global Diseases, University of Georgia, Athens, GA, USA.
-2. Another Affiliation, Athens, GA, USA.
+
 
 $*$ These authors contributed equally to this work.
 
