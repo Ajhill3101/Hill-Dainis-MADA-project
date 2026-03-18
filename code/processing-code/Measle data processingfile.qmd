@@ -44,7 +44,10 @@ cdcmeaslesbystate_raw |> slice_head(n = 8)
     cases = suppressWarnings(as.numeric(cases)), #convert case variable to numeric
     state = stringr::str_to_title(stringr::str_squish(state)) #Format states to be capitalized
   ) |>
-  filter(!is.na(state), !is.na(year))
+  filter(
+    !is.na(state), 
+    !is.na(year), 
+    state != "District Of Columbia") #Remove rows associated with District of Columbia
 
 # Quick checks
 names(cdcmeaslesbystate_long)
@@ -89,8 +92,13 @@ hist_yearly <- hist_raw |>
     year = year(start_date), #extract year from start_date
     cases = as.numeric(count_value) #make count_value a numeric variable
   ) |>
-  filter(!is.na(state), !is.na(year), !is.na(cases)) |>
-  group_by(state, year) #group data by state and year |>
+  filter(
+    !is.na(state), 
+    !is.na(year), 
+    !is.na(cases),
+    !state %in% c("American Samoa", "Guam", "District of Columbia", "Northern Mariana Islands", "Puerto Rico", "Virgin Islands, U.s.")) |>
+    #remove cities and U.S. territories
+  group_by(state, year) |> #group data by state and year
   summarise(cases = sum(cases, na.rm = TRUE), .groups = "drop") #sum up number of cases by year for each state
 
 #Check to confirm data is cleaned
@@ -163,7 +171,13 @@ mmr_clean <- mmr_raw |>
     mmr_pct = readr::parse_number(estimated_percent_vaccinated),# handles "95.4%" or "95.4"
     category = if ("category" %in% names(mmr_raw)) category else NA_character_
   ) |>
-  filter(!is.na(state), !is.na(school_year_start), !is.na(mmr_pct))
+  filter(!is.na(state), 
+  !is.na(school_year_start), 
+  !is.na(mmr_pct),
+  !state %in% c(
+    "Houston", "San Antonio", "New York City", "District Of Columbia" 
+  )
+  )
 
 # Check which years exist
 mmr_clean |> count(school_year, school_year_start) |> arrange(school_year_start)
@@ -240,9 +254,9 @@ education_clean <- education_clean %>%
 
 # Exploratory summaries and plots from cleaned data
 ```{r}
-# Exploratory summaries for MMR data
+#Exploratory summaries for MMR data
 
-# States with the lowest recent MMR coverage (chose last available year)
+#Find states with the lowest recent MMR coverage (chose last available year)
 last_year <- max(mmr_state_year$school_year_start, na.rm = TRUE)
 
 mmr_state_year |>
@@ -251,7 +265,7 @@ mmr_state_year |>
   select(state, school_year_start, mmr_pct) |>
   slice_head(n = 15)
 
-# States that were below 95% most often (across all years)
+#Determine states that were below 95% most often (across all years)
 mmr_state_features <- mmr_state_year |>
   group_by(state) |>
   summarise(
@@ -267,7 +281,7 @@ mmr_state_features <- mmr_state_year |>
 
 mmr_state_features |> slice_head(n = 20)
 
-# national mean and median over time
+#Calculate national mean and median over time
 mmr_national_trend <- mmr_state_year |>
   group_by(school_year_start) |>
   summarise(
