@@ -2256,9 +2256,7 @@ Removed 1 row containing missing values or values outside the scale range
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save results</span></span>
 <span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">glance</span>(mmrbivar_log_fit), <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"glance_totalcases vs MMR biovar.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="biovariable-model-1-after-log-transforming-the-data-to-handle-outliers-this-model-shows-that-states-with-higher-mmr-vaccination-rates-generally-tend-to-have-fewer-measles-cases.-however-this-connection-isnt-strong-enough-to-be-definitive-as-vaccination-rates-alone-only-explain-about-4-of-the-differences-seen-between-states." class="level1">
-<h1>Biovariable Model 1: After log-transforming the data to handle outliers, this model shows that states with higher MMR vaccination rates generally tend to have fewer measles cases. However, this connection isn’t strong enough to be definitive, as vaccination rates alone only explain about 4% of the differences seen between states.</h1>
+<p>Biovariable Model 1: After log-transforming the data to handle outliers, this model shows that states with higher MMR vaccination rates generally tend to have fewer measles cases. However, this connection isn’t strong enough to be definitive, as vaccination rates alone only explain about 4% of the differences seen between states.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Total measles cases vs fraction of years below 95% MMR</span></span>
 <span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2387,9 +2385,7 @@ Removed 1 row containing missing values or values outside the scale range
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save results</span></span>
 <span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">glance</span>(below95bivar_log_fit), <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"glance_totalcases vs below95 biovar.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="biovariable-model-2-this-model-shows-that-for-every-year-a-states-vaccination-rate-stays-below-the-95-target-there-is-a-242-increase-in-the-number-of-predicted-measles-cases.-while-this-is-the-strongest-predictor-found-so-far-these-vaccination-gaps-still-only-explain-about-7-of-the-total-differences-seen-between-states." class="level1">
-<h1>Biovariable Model 2: This model shows that for every year a state’s vaccination rate stays below the 95% target, there is a 242% increase in the number of predicted measles cases. While this is the strongest predictor found so far, these vaccination gaps still only explain about 7% of the total differences seen between states.</h1>
+<p>Biovariable Model 2: This model shows that for every year a state’s vaccination rate stays below the 95% target, there is a 242% increase in the number of predicted measles cases. While this is the strongest predictor found so far, these vaccination gaps still only explain about 7% of the total differences seen between states.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 3: Total measles cases (log transformed) vs historical measles persistence</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2518,9 +2514,7 @@ Removed 2 rows containing missing values or values outside the scale range
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save results</span></span>
 <span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">glance</span>(historybivar_log_fit), <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"glance_totalcases vs history biovar.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="biovariable-model-3this-model-shows-that-states-with-a-constant-history-of-measles-outbreaks-can-see-a-656-increase-in-predicted-total-cases-compared-to-states-with-no-history-of-disease.-even-though-this-history-of-disease-presence-is-a-better-predictor-than-some-other-factors-it-still-only-explains-about-4.4-of-why-case-numbers-differ-from-state-to-state.r" class="level1">
-<h1>Biovariable Model 3:This model shows that states with a constant history of measles outbreaks can see a 656% increase in predicted total cases compared to states with no history of disease. Even though this history of disease presence is a better predictor than some other factors, it still only explains about 4.4% of why case numbers differ from state to state.```{r}</h1>
+<p>Biovariable Model 3:This model shows that states with a constant history of measles outbreaks can see a 656% increase in predicted total cases compared to states with no history of disease. Even though this history of disease presence is a better predictor than some other factors, it still only explains about 4.4% of why case numbers differ from state to state.```{r}</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 4: Total measles cases (log transformed) vs change in high school graduation rate</span></span>
 <span id="cb174-2"><a href="#cb174-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2647,11 +2641,442 @@ Removed 1 row containing missing values or values outside the scale range
 </table>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save results</span></span>
-<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">glance</span>(edubivar_log_fit), <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"glance_totalcases vs edu log trans biovar.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">glance</span>(edubivar_log_fit), <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"glance_totalcases vs edu log trans biovar.csv"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Biovariable Model 4: This model shows that for every percentage point increase in a state’s high school graduation rate, there is a 13.9% increase in the number of predicted measles cases. However, this link is very weak and only explains about 3% of the differences in case numbers between states.Therefore there is little evidence to suggest that graduation rate trends are a primary driver of measles outbreaks.</p>
 </section>
-<section id="biovariable-model-4-this-model-shows-that-for-every-percentage-point-increase-in-a-states-high-school-graduation-rate-there-is-a-13.9-increase-in-the-number-of-predicted-measles-cases.-however-this-link-is-very-weak-and-only-explains-about-3-of-the-differences-in-case-numbers-between-states.therefore-there-is-little-evidence-to-suggest-that-graduation-rate-trends-are-a-primary-driver-of-measles-outbreaks." class="level1">
-<h1>Biovariable Model 4: This model shows that for every percentage point increase in a state’s high school graduation rate, there is a 13.9% increase in the number of predicted measles cases. However, this link is very weak and only explains about 3% of the differences in case numbers between states.Therefore there is little evidence to suggest that graduation rate trends are a primary driver of measles outbreaks.</h1>
+<section id="multivariable-analysis" class="level1">
+<h1>Multivariable analysis</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># log transform variable to minimize outliers</span></span>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper function</span></span>
+<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="co"># signed_log1p(x) behaves like log1p(x) for positive values, but it also works for negative values:</span></span>
+<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   signed_log1p(x) = sign(x) * log(1 + abs(x))</span></span>
+<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a>signed_log1p <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sign</span>(x) <span class="sc">*</span> <span class="fu">log1p</span>(<span class="fu">abs</span>(x))</span>
+<span id="cb184-8"><a href="#cb184-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb184-9"><a href="#cb184-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-10"><a href="#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb184-11"><a href="#cb184-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-12"><a href="#cb184-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4-PREDICTOR MODEL DATA</span></span>
+<span id="cb184-13"><a href="#cb184-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-14"><a href="#cb184-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Outcome:</span></span>
+<span id="cb184-15"><a href="#cb184-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   total_cases_2024_26</span></span>
+<span id="cb184-16"><a href="#cb184-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-17"><a href="#cb184-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictors:</span></span>
+<span id="cb184-18"><a href="#cb184-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   pct_years_any         = historical measles</span></span>
+<span id="cb184-19"><a href="#cb184-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   mmr_mean              = mean MMR</span></span>
+<span id="cb184-20"><a href="#cb184-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   frac_years_below_95   = below 95% MMR vaccination</span></span>
+<span id="cb184-21"><a href="#cb184-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   hsgradratediff        = incomplete high school rate</span></span>
+<span id="cb184-22"><a href="#cb184-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-23"><a href="#cb184-23" aria-hidden="true" tabindex="-1"></a>main_data <span class="ot">&lt;-</span> features <span class="sc">%&gt;%</span></span>
+<span id="cb184-24"><a href="#cb184-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb184-25"><a href="#cb184-25" aria-hidden="true" tabindex="-1"></a>    total_cases_2024_26,</span>
+<span id="cb184-26"><a href="#cb184-26" aria-hidden="true" tabindex="-1"></a>    pct_years_any,</span>
+<span id="cb184-27"><a href="#cb184-27" aria-hidden="true" tabindex="-1"></a>    mmr_mean,</span>
+<span id="cb184-28"><a href="#cb184-28" aria-hidden="true" tabindex="-1"></a>    frac_years_below_95,</span>
+<span id="cb184-29"><a href="#cb184-29" aria-hidden="true" tabindex="-1"></a>    hsgradratediff</span>
+<span id="cb184-30"><a href="#cb184-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb184-31"><a href="#cb184-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb184-32"><a href="#cb184-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb184-33"><a href="#cb184-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_total_cases =</span> <span class="fu">signed_log1p</span>(total_cases_2024_26),</span>
+<span id="cb184-34"><a href="#cb184-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_pct_years_any =</span> <span class="fu">signed_log1p</span>(pct_years_any),</span>
+<span id="cb184-35"><a href="#cb184-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_mmr_mean =</span> <span class="fu">signed_log1p</span>(mmr_mean),</span>
+<span id="cb184-36"><a href="#cb184-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_frac_years_below_95 =</span> <span class="fu">signed_log1p</span>(frac_years_below_95),</span>
+<span id="cb184-37"><a href="#cb184-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_hsgradratediff =</span> <span class="fu">signed_log1p</span>(hsgradratediff)</span>
+<span id="cb184-38"><a href="#cb184-38" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb184-39"><a href="#cb184-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-40"><a href="#cb184-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Train/test split for the main 4-predictor model</span></span>
+<span id="cb184-41"><a href="#cb184-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-42"><a href="#cb184-42" aria-hidden="true" tabindex="-1"></a>main_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(main_data, <span class="at">prop =</span> <span class="fl">0.75</span>)</span>
+<span id="cb184-43"><a href="#cb184-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-44"><a href="#cb184-44" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(main_split)</span>
+<span id="cb184-45"><a href="#cb184-45" aria-hidden="true" tabindex="-1"></a>test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(main_split)</span>
+<span id="cb184-46"><a href="#cb184-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-47"><a href="#cb184-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-48"><a href="#cb184-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 10-fold CV on training data only</span></span>
+<span id="cb184-49"><a href="#cb184-49" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb184-50"><a href="#cb184-50" aria-hidden="true" tabindex="-1"></a>cv_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train_data, <span class="at">v =</span> <span class="dv">10</span>)</span>
+<span id="cb184-51"><a href="#cb184-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-52"><a href="#cb184-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-53"><a href="#cb184-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression specification</span></span>
+<span id="cb184-54"><a href="#cb184-54" aria-hidden="true" tabindex="-1"></a>lm_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb184-55"><a href="#cb184-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
+<span id="cb184-56"><a href="#cb184-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-57"><a href="#cb184-57" aria-hidden="true" tabindex="-1"></a><span class="co"># MAIN LOG-TRANSFORMED 4-PREDICTOR MODEL</span></span>
+<span id="cb184-58"><a href="#cb184-58" aria-hidden="true" tabindex="-1"></a>main_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb184-59"><a href="#cb184-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb184-60"><a href="#cb184-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb184-61"><a href="#cb184-61" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb184-62"><a href="#cb184-62" aria-hidden="true" tabindex="-1"></a>      log_pct_years_any <span class="sc">+</span></span>
+<span id="cb184-63"><a href="#cb184-63" aria-hidden="true" tabindex="-1"></a>      log_mmr_mean <span class="sc">+</span></span>
+<span id="cb184-64"><a href="#cb184-64" aria-hidden="true" tabindex="-1"></a>      log_frac_years_below_95 <span class="sc">+</span></span>
+<span id="cb184-65"><a href="#cb184-65" aria-hidden="true" tabindex="-1"></a>      log_hsgradratediff</span>
+<span id="cb184-66"><a href="#cb184-66" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb184-67"><a href="#cb184-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-68"><a href="#cb184-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit on training data</span></span>
+<span id="cb184-69"><a href="#cb184-69" aria-hidden="true" tabindex="-1"></a>main_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(main_wf, <span class="at">data =</span> train_data)</span>
+<span id="cb184-70"><a href="#cb184-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-71"><a href="#cb184-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Training MAE</span></span>
+<span id="cb184-72"><a href="#cb184-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this MAE is on the log-transformed outcome scale</span></span>
+<span id="cb184-73"><a href="#cb184-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-74"><a href="#cb184-74" aria-hidden="true" tabindex="-1"></a>train_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(main_fit, <span class="at">new_data =</span> train_data) <span class="sc">%&gt;%</span></span>
+<span id="cb184-75"><a href="#cb184-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(train_data)</span>
+<span id="cb184-76"><a href="#cb184-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-77"><a href="#cb184-77" aria-hidden="true" tabindex="-1"></a>train_mae <span class="ot">&lt;-</span> train_preds <span class="sc">%&gt;%</span></span>
+<span id="cb184-78"><a href="#cb184-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mae</span>(<span class="at">truth =</span> log_total_cases, <span class="at">estimate =</span> .pred)</span>
+<span id="cb184-79"><a href="#cb184-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-80"><a href="#cb184-80" aria-hidden="true" tabindex="-1"></a>train_mae</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 mae     standard       0.979</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-validated MAE</span></span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>main_cv <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a>  main_wf,</span>
+<span id="cb186-4"><a href="#cb186-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb186-5"><a href="#cb186-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb186-6"><a href="#cb186-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb186-7"><a href="#cb186-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-8"><a href="#cb186-8" aria-hidden="true" tabindex="-1"></a>main_cv_metrics <span class="ot">&lt;-</span> <span class="fu">collect_metrics</span>(main_cv)</span>
+<span id="cb186-9"><a href="#cb186-9" aria-hidden="true" tabindex="-1"></a>main_cv_metrics</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .metric .estimator  mean     n std_err .config        
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
+1 mae     standard    1.16    10   0.206 pre0_mod0_post0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test MAE</span></span>
+<span id="cb188-2"><a href="#cb188-2" aria-hidden="true" tabindex="-1"></a>test_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(main_fit, <span class="at">new_data =</span> test_data) <span class="sc">%&gt;%</span></span>
+<span id="cb188-3"><a href="#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(test_data)</span>
+<span id="cb188-4"><a href="#cb188-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-5"><a href="#cb188-5" aria-hidden="true" tabindex="-1"></a>test_mae <span class="ot">&lt;-</span> test_preds <span class="sc">%&gt;%</span></span>
+<span id="cb188-6"><a href="#cb188-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mae</span>(<span class="at">truth =</span> log_total_cases, <span class="at">estimate =</span> .pred)</span>
+<span id="cb188-7"><a href="#cb188-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-8"><a href="#cb188-8" aria-hidden="true" tabindex="-1"></a>test_mae</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 mae     standard        1.50</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb190"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary table for the main model</span></span>
+<span id="cb190-2"><a href="#cb190-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-3"><a href="#cb190-3" aria-hidden="true" tabindex="-1"></a>main_mae_summary <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb190-4"><a href="#cb190-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dataset =</span> <span class="fu">c</span>(<span class="st">"Training"</span>, <span class="st">"Cross-validation"</span>, <span class="st">"Test"</span>),</span>
+<span id="cb190-5"><a href="#cb190-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(</span>
+<span id="cb190-6"><a href="#cb190-6" aria-hidden="true" tabindex="-1"></a>    train_mae<span class="sc">$</span>.estimate,</span>
+<span id="cb190-7"><a href="#cb190-7" aria-hidden="true" tabindex="-1"></a>    main_cv_metrics<span class="sc">$</span>mean[main_cv_metrics<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>],</span>
+<span id="cb190-8"><a href="#cb190-8" aria-hidden="true" tabindex="-1"></a>    test_mae<span class="sc">$</span>.estimate</span>
+<span id="cb190-9"><a href="#cb190-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb190-10"><a href="#cb190-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb190-11"><a href="#cb190-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-12"><a href="#cb190-12" aria-hidden="true" tabindex="-1"></a>main_mae_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  dataset            MAE
+  &lt;chr&gt;            &lt;dbl&gt;
+1 Training         0.979
+2 Cross-validation 1.16 
+3 Test             1.50 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary table when using all 4 predictors </span></span>
+<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-3"><a href="#cb192-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TEST</span><span class="co"> WHICH OF THE 4 MAIN PREDICTORS ARE BEST</span></span>
+<span id="cb192-4"><a href="#cb192-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-5"><a href="#cb192-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Idea:</span></span>
+<span id="cb192-6"><a href="#cb192-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the full 4-predictor model to models that remove</span></span>
+<span id="cb192-7"><a href="#cb192-7" aria-hidden="true" tabindex="-1"></a><span class="co"># one predictor at a time. If MAE gets higher when a predictor is removed, that predictor is helping.</span></span>
+<span id="cb192-8"><a href="#cb192-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-9"><a href="#cb192-9" aria-hidden="true" tabindex="-1"></a>no_hist_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb192-10"><a href="#cb192-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb192-11"><a href="#cb192-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb192-12"><a href="#cb192-12" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb192-13"><a href="#cb192-13" aria-hidden="true" tabindex="-1"></a>      log_mmr_mean <span class="sc">+</span></span>
+<span id="cb192-14"><a href="#cb192-14" aria-hidden="true" tabindex="-1"></a>      log_frac_years_below_95 <span class="sc">+</span></span>
+<span id="cb192-15"><a href="#cb192-15" aria-hidden="true" tabindex="-1"></a>      log_hsgradratediff</span>
+<span id="cb192-16"><a href="#cb192-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb192-17"><a href="#cb192-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-18"><a href="#cb192-18" aria-hidden="true" tabindex="-1"></a>no_mmrmean_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb192-19"><a href="#cb192-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb192-20"><a href="#cb192-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb192-21"><a href="#cb192-21" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb192-22"><a href="#cb192-22" aria-hidden="true" tabindex="-1"></a>      log_pct_years_any <span class="sc">+</span></span>
+<span id="cb192-23"><a href="#cb192-23" aria-hidden="true" tabindex="-1"></a>      log_frac_years_below_95 <span class="sc">+</span></span>
+<span id="cb192-24"><a href="#cb192-24" aria-hidden="true" tabindex="-1"></a>      log_hsgradratediff</span>
+<span id="cb192-25"><a href="#cb192-25" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb192-26"><a href="#cb192-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-27"><a href="#cb192-27" aria-hidden="true" tabindex="-1"></a>no_below95_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb192-28"><a href="#cb192-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb192-29"><a href="#cb192-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb192-30"><a href="#cb192-30" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb192-31"><a href="#cb192-31" aria-hidden="true" tabindex="-1"></a>      log_pct_years_any <span class="sc">+</span></span>
+<span id="cb192-32"><a href="#cb192-32" aria-hidden="true" tabindex="-1"></a>      log_mmr_mean <span class="sc">+</span></span>
+<span id="cb192-33"><a href="#cb192-33" aria-hidden="true" tabindex="-1"></a>      log_hsgradratediff</span>
+<span id="cb192-34"><a href="#cb192-34" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb192-35"><a href="#cb192-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-36"><a href="#cb192-36" aria-hidden="true" tabindex="-1"></a>no_hsgrad_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb192-37"><a href="#cb192-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb192-38"><a href="#cb192-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb192-39"><a href="#cb192-39" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb192-40"><a href="#cb192-40" aria-hidden="true" tabindex="-1"></a>      log_pct_years_any <span class="sc">+</span></span>
+<span id="cb192-41"><a href="#cb192-41" aria-hidden="true" tabindex="-1"></a>      log_mmr_mean <span class="sc">+</span></span>
+<span id="cb192-42"><a href="#cb192-42" aria-hidden="true" tabindex="-1"></a>      log_frac_years_below_95</span>
+<span id="cb192-43"><a href="#cb192-43" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb192-44"><a href="#cb192-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-45"><a href="#cb192-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-validation for each reduced model</span></span>
+<span id="cb192-46"><a href="#cb192-46" aria-hidden="true" tabindex="-1"></a>no_hist_cv <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb192-47"><a href="#cb192-47" aria-hidden="true" tabindex="-1"></a>  no_hist_wf,</span>
+<span id="cb192-48"><a href="#cb192-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb192-49"><a href="#cb192-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb192-50"><a href="#cb192-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb192-51"><a href="#cb192-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-52"><a href="#cb192-52" aria-hidden="true" tabindex="-1"></a>no_mmrmean_cv <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb192-53"><a href="#cb192-53" aria-hidden="true" tabindex="-1"></a>  no_mmrmean_wf,</span>
+<span id="cb192-54"><a href="#cb192-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb192-55"><a href="#cb192-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb192-56"><a href="#cb192-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb192-57"><a href="#cb192-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-58"><a href="#cb192-58" aria-hidden="true" tabindex="-1"></a>no_below95_cv <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb192-59"><a href="#cb192-59" aria-hidden="true" tabindex="-1"></a>  no_below95_wf,</span>
+<span id="cb192-60"><a href="#cb192-60" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb192-61"><a href="#cb192-61" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb192-62"><a href="#cb192-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb192-63"><a href="#cb192-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-64"><a href="#cb192-64" aria-hidden="true" tabindex="-1"></a>no_hsgrad_cv <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb192-65"><a href="#cb192-65" aria-hidden="true" tabindex="-1"></a>  no_hsgrad_wf,</span>
+<span id="cb192-66"><a href="#cb192-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb192-67"><a href="#cb192-67" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb192-68"><a href="#cb192-68" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb192-69"><a href="#cb192-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-70"><a href="#cb192-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Put CV MAE values into one comparison table</span></span>
+<span id="cb192-71"><a href="#cb192-71" aria-hidden="true" tabindex="-1"></a>predictor_importance_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb192-72"><a href="#cb192-72" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(</span>
+<span id="cb192-73"><a href="#cb192-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Full 4-predictor log model"</span>,</span>
+<span id="cb192-74"><a href="#cb192-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Without pct_years_any"</span>,</span>
+<span id="cb192-75"><a href="#cb192-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Without mmr_mean"</span>,</span>
+<span id="cb192-76"><a href="#cb192-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Without frac_years_below_95"</span>,</span>
+<span id="cb192-77"><a href="#cb192-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Without hsgradratediff"</span></span>
+<span id="cb192-78"><a href="#cb192-78" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb192-79"><a href="#cb192-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">cv_mae =</span> <span class="fu">c</span>(</span>
+<span id="cb192-80"><a href="#cb192-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(main_cv)<span class="sc">$</span>mean[<span class="fu">collect_metrics</span>(main_cv)<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>],</span>
+<span id="cb192-81"><a href="#cb192-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(no_hist_cv)<span class="sc">$</span>mean[<span class="fu">collect_metrics</span>(no_hist_cv)<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>],</span>
+<span id="cb192-82"><a href="#cb192-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(no_mmrmean_cv)<span class="sc">$</span>mean[<span class="fu">collect_metrics</span>(no_mmrmean_cv)<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>],</span>
+<span id="cb192-83"><a href="#cb192-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(no_below95_cv)<span class="sc">$</span>mean[<span class="fu">collect_metrics</span>(no_below95_cv)<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>],</span>
+<span id="cb192-84"><a href="#cb192-84" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(no_hsgrad_cv)<span class="sc">$</span>mean[<span class="fu">collect_metrics</span>(no_hsgrad_cv)<span class="sc">$</span>.metric <span class="sc">==</span> <span class="st">"mae"</span>]</span>
+<span id="cb192-85"><a href="#cb192-85" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb192-86"><a href="#cb192-86" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb192-87"><a href="#cb192-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb192-88"><a href="#cb192-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">mae_increase_vs_full =</span> cv_mae <span class="sc">-</span> cv_mae[model <span class="sc">==</span> <span class="st">"Full 4-predictor log model"</span>]</span>
+<span id="cb192-89"><a href="#cb192-89" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb192-90"><a href="#cb192-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(cv_mae)</span>
+<span id="cb192-91"><a href="#cb192-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-92"><a href="#cb192-92" aria-hidden="true" tabindex="-1"></a><span class="co"># table for which of the 4 predictors performs the best</span></span>
+<span id="cb192-93"><a href="#cb192-93" aria-hidden="true" tabindex="-1"></a>predictor_importance_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  model                       cv_mae mae_increase_vs_full
+  &lt;chr&gt;                        &lt;dbl&gt;                &lt;dbl&gt;
+1 Without pct_years_any         1.13              -0.0312
+2 Without hsgradratediff        1.13              -0.0289
+3 Full 4-predictor log model    1.16               0     
+4 Without mmr_mean              1.17               0.0127
+5 Without frac_years_below_95   1.28               0.118 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save Table</span></span>
+<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(</span>
+<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>  predictor_importance_table,</span>
+<span id="cb194-4"><a href="#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"which_of_the_4_predictors_performs_best.csv"</span>)</span>
+<span id="cb194-5"><a href="#cb194-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb194-6"><a href="#cb194-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-7"><a href="#cb194-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb194-8"><a href="#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot for predictor importance</span></span>
+<span id="cb194-9"><a href="#cb194-9" aria-hidden="true" tabindex="-1"></a>predictor_importance_plot <span class="ot">&lt;-</span> predictor_importance_table <span class="sc">%&gt;%</span></span>
+<span id="cb194-10"><a href="#cb194-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(model <span class="sc">!=</span> <span class="st">"Full 4-predictor log model"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb194-11"><a href="#cb194-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(model, mae_increase_vs_full), <span class="at">y =</span> mae_increase_vs_full)) <span class="sc">+</span></span>
+<span id="cb194-12"><a href="#cb194-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb194-13"><a href="#cb194-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb194-14"><a href="#cb194-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb194-15"><a href="#cb194-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Predictor importance from change in CV MAE"</span>,</span>
+<span id="cb194-16"><a href="#cb194-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Model with predictor removed"</span>,</span>
+<span id="cb194-17"><a href="#cb194-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Increase in MAE vs full model"</span></span>
+<span id="cb194-18"><a href="#cb194-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb194-19"><a href="#cb194-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb194-20"><a href="#cb194-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-21"><a href="#cb194-21" aria-hidden="true" tabindex="-1"></a>predictor_importance_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Measle-data-processingfile_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot</span></span>
+<span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb195-3"><a href="#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"figures"</span>,<span class="st">"Predictor_Importance.png"</span>),</span>
+<span id="cb195-4"><a href="#cb195-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> predictor_importance_plot,</span>
+<span id="cb195-5"><a href="#cb195-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="cb195-6"><a href="#cb195-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span></span>
+<span id="cb195-7"><a href="#cb195-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-predictor model using best predictors</span></span>
+<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mean MMR + below 95% vaccination</span></span>
+<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-4"><a href="#cb196-4" aria-hidden="true" tabindex="-1"></a>signed_log1p <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb196-5"><a href="#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sign</span>(x) <span class="sc">*</span> <span class="fu">log1p</span>(<span class="fu">abs</span>(x))</span>
+<span id="cb196-6"><a href="#cb196-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb196-7"><a href="#cb196-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-8"><a href="#cb196-8" aria-hidden="true" tabindex="-1"></a>two_pred_data <span class="ot">&lt;-</span> features <span class="sc">%&gt;%</span></span>
+<span id="cb196-9"><a href="#cb196-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb196-10"><a href="#cb196-10" aria-hidden="true" tabindex="-1"></a>    total_cases_2024_26,</span>
+<span id="cb196-11"><a href="#cb196-11" aria-hidden="true" tabindex="-1"></a>    mmr_mean,</span>
+<span id="cb196-12"><a href="#cb196-12" aria-hidden="true" tabindex="-1"></a>    frac_years_below_95</span>
+<span id="cb196-13"><a href="#cb196-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb196-14"><a href="#cb196-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb196-15"><a href="#cb196-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb196-16"><a href="#cb196-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_total_cases =</span> <span class="fu">signed_log1p</span>(total_cases_2024_26),</span>
+<span id="cb196-17"><a href="#cb196-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_mmr_mean =</span> <span class="fu">signed_log1p</span>(mmr_mean),</span>
+<span id="cb196-18"><a href="#cb196-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_frac_years_below_95 =</span> <span class="fu">signed_log1p</span>(frac_years_below_95)</span>
+<span id="cb196-19"><a href="#cb196-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb196-20"><a href="#cb196-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-21"><a href="#cb196-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-22"><a href="#cb196-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Train / test split</span></span>
+<span id="cb196-23"><a href="#cb196-23" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb196-24"><a href="#cb196-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-25"><a href="#cb196-25" aria-hidden="true" tabindex="-1"></a>two_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(two_pred_data, <span class="at">prop =</span> <span class="fl">0.75</span>)</span>
+<span id="cb196-26"><a href="#cb196-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-27"><a href="#cb196-27" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(two_split)</span>
+<span id="cb196-28"><a href="#cb196-28" aria-hidden="true" tabindex="-1"></a>test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(two_split)</span>
+<span id="cb196-29"><a href="#cb196-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-30"><a href="#cb196-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-31"><a href="#cb196-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Model specification</span></span>
+<span id="cb196-32"><a href="#cb196-32" aria-hidden="true" tabindex="-1"></a>lm_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb196-33"><a href="#cb196-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
+<span id="cb196-34"><a href="#cb196-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-35"><a href="#cb196-35" aria-hidden="true" tabindex="-1"></a>two_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb196-36"><a href="#cb196-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(lm_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb196-37"><a href="#cb196-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(</span>
+<span id="cb196-38"><a href="#cb196-38" aria-hidden="true" tabindex="-1"></a>    log_total_cases <span class="sc">~</span></span>
+<span id="cb196-39"><a href="#cb196-39" aria-hidden="true" tabindex="-1"></a>      log_mmr_mean <span class="sc">+</span></span>
+<span id="cb196-40"><a href="#cb196-40" aria-hidden="true" tabindex="-1"></a>      log_frac_years_below_95</span>
+<span id="cb196-41"><a href="#cb196-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb196-42"><a href="#cb196-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-43"><a href="#cb196-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-44"><a href="#cb196-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model</span></span>
+<span id="cb196-45"><a href="#cb196-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-46"><a href="#cb196-46" aria-hidden="true" tabindex="-1"></a>two_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(two_wf, <span class="at">data =</span> train_data)</span>
+<span id="cb196-47"><a href="#cb196-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-48"><a href="#cb196-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-49"><a href="#cb196-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Training MAE</span></span>
+<span id="cb196-50"><a href="#cb196-50" aria-hidden="true" tabindex="-1"></a>train_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(two_fit, train_data) <span class="sc">%&gt;%</span></span>
+<span id="cb196-51"><a href="#cb196-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(train_data)</span>
+<span id="cb196-52"><a href="#cb196-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-53"><a href="#cb196-53" aria-hidden="true" tabindex="-1"></a>train_mae <span class="ot">&lt;-</span> train_preds <span class="sc">%&gt;%</span></span>
+<span id="cb196-54"><a href="#cb196-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mae</span>(<span class="at">truth =</span> log_total_cases, <span class="at">estimate =</span> .pred)</span>
+<span id="cb196-55"><a href="#cb196-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-56"><a href="#cb196-56" aria-hidden="true" tabindex="-1"></a>train_mae</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 mae     standard        1.08</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10-fold cross validation</span></span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-4"><a href="#cb198-4" aria-hidden="true" tabindex="-1"></a>cv_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train_data, <span class="at">v =</span> <span class="dv">10</span>)</span>
+<span id="cb198-5"><a href="#cb198-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-6"><a href="#cb198-6" aria-hidden="true" tabindex="-1"></a>cv_results <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(</span>
+<span id="cb198-7"><a href="#cb198-7" aria-hidden="true" tabindex="-1"></a>  two_wf,</span>
+<span id="cb198-8"><a href="#cb198-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> cv_folds,</span>
+<span id="cb198-9"><a href="#cb198-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">metric_set</span>(mae)</span>
+<span id="cb198-10"><a href="#cb198-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb198-11"><a href="#cb198-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-12"><a href="#cb198-12" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(cv_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .metric .estimator  mean     n std_err .config        
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
+1 mae     standard    1.18    10   0.174 pre0_mod0_post0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test MAE</span></span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a>test_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(two_fit, test_data) <span class="sc">%&gt;%</span></span>
+<span id="cb200-3"><a href="#cb200-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(test_data)</span>
+<span id="cb200-4"><a href="#cb200-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-5"><a href="#cb200-5" aria-hidden="true" tabindex="-1"></a>test_mae <span class="ot">&lt;-</span> test_preds <span class="sc">%&gt;%</span></span>
+<span id="cb200-6"><a href="#cb200-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mae</span>(<span class="at">truth =</span> log_total_cases, <span class="at">estimate =</span> .pred)</span>
+<span id="cb200-7"><a href="#cb200-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-8"><a href="#cb200-8" aria-hidden="true" tabindex="-1"></a>test_mae</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 mae     standard        1.36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MAE summary table</span></span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a>mae_summary <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb202-3"><a href="#cb202-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">dataset =</span> <span class="fu">c</span>(<span class="st">"Training"</span>, <span class="st">"Cross-validation"</span>, <span class="st">"Test"</span>),</span>
+<span id="cb202-4"><a href="#cb202-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(</span>
+<span id="cb202-5"><a href="#cb202-5" aria-hidden="true" tabindex="-1"></a>    train_mae<span class="sc">$</span>.estimate,</span>
+<span id="cb202-6"><a href="#cb202-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collect_metrics</span>(cv_results)<span class="sc">$</span>mean,</span>
+<span id="cb202-7"><a href="#cb202-7" aria-hidden="true" tabindex="-1"></a>    test_mae<span class="sc">$</span>.estimate</span>
+<span id="cb202-8"><a href="#cb202-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb202-9"><a href="#cb202-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb202-10"><a href="#cb202-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-11"><a href="#cb202-11" aria-hidden="true" tabindex="-1"></a>mae_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  dataset            MAE
+  &lt;chr&gt;            &lt;dbl&gt;
+1 Training          1.08
+2 Cross-validation  1.18
+3 Test              1.36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of how the performance of the two prediction model</span></span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Save summary</span></span>
+<span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(</span>
+<span id="cb204-4"><a href="#cb204-4" aria-hidden="true" tabindex="-1"></a>  mae_summary,(<span class="fu">here</span>(<span class="st">"results"</span>,<span class="st">"tables"</span>,<span class="st">"Two-Predictor_Model_Summary.csv"</span>)))</span>
+<span id="cb204-5"><a href="#cb204-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-6"><a href="#cb204-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Save summary</span></span>
+<span id="cb204-7"><a href="#cb204-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(</span>
+<span id="cb204-8"><a href="#cb204-8" aria-hidden="true" tabindex="-1"></a>  mae_summary,</span>
+<span id="cb204-9"><a href="#cb204-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">"results"</span>, <span class="st">"tables"</span>, <span class="st">"Two-Predictor_Model_Summary.csv"</span>)</span>
+<span id="cb204-10"><a href="#cb204-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb204-11"><a href="#cb204-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-12"><a href="#cb204-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plot</span></span>
+<span id="cb204-13"><a href="#cb204-13" aria-hidden="true" tabindex="-1"></a>two_predictor_actual_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(train_preds, <span class="fu">aes</span>(<span class="at">x =</span> log_total_cases, <span class="at">y =</span> .pred)) <span class="sc">+</span></span>
+<span id="cb204-14"><a href="#cb204-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb204-15"><a href="#cb204-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb204-16"><a href="#cb204-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb204-17"><a href="#cb204-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Two-Predictor Model: Predicted vs Actual Measles Cases"</span>,</span>
+<span id="cb204-18"><a href="#cb204-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Predictors: Mean MMR and Below-95% Vaccination Rate"</span>,</span>
+<span id="cb204-19"><a href="#cb204-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Actual (log-transformed measles cases)"</span>,</span>
+<span id="cb204-20"><a href="#cb204-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Predicted (log-transformed measles cases)"</span></span>
+<span id="cb204-21"><a href="#cb204-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb204-22"><a href="#cb204-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb204-23"><a href="#cb204-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-24"><a href="#cb204-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
+<span id="cb204-25"><a href="#cb204-25" aria-hidden="true" tabindex="-1"></a>two_predictor_actual_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Measle-data-processingfile_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb205"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot</span></span>
+<span id="cb205-2"><a href="#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb205-3"><a href="#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"results"</span>, <span class="st">"figures"</span>, <span class="st">"Two-Predictor_Model.png"</span>),</span>
+<span id="cb205-4"><a href="#cb205-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> two_predictor_actual_plot,</span>
+<span id="cb205-5"><a href="#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="cb205-6"><a href="#cb205-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span></span>
+<span id="cb205-7"><a href="#cb205-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The predicted versus actual plot shows points scattered around the 45-degree line, indicating that the model captures the general relationship between vaccination rates and measles cases. While predictions are not exact, the diagonal trend suggests the two predictors provide meaningful predictive information.</p>
 </section>
 
 </main>
